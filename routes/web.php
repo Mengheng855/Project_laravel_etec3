@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BackendController\CategoryController;
+use App\Http\Controllers\BackendController\LogoController;
 use App\Http\Controllers\BackendController\ProductController;
 use App\Http\Controllers\BackendController\UserController;
 use App\Http\Controllers\FrontController\ProductController as FrontControllerProductController;
@@ -53,5 +54,12 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/admin/list-category','viewCate')->name('viewCate');
         Route::get('/admin/edit-category/{category}','editCate')->name('editCategory');
         Route::post('/admin/delete-category','deleteCate')->name('deleteCate');
+    });
+    Route::controller(LogoController::class)->group(function(){
+        Route::get('/admin/add-logo','addLogo')->name('addLogo');
+        Route::post('/admin/add-logo-submit','addLogoSubmit')->name('addLogoSubmit');
+        Route::get('/admin/list-logo','viewLogo')->name('viewLogo');
+        Route::get('/admin/edit-logo','editLogo')->name('editLogo');
+        Route::post('/admin/delete-logo','deleteLogo')->name('deleteLogo');
     });
 });

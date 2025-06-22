@@ -11,12 +11,12 @@
         <header>
             <div class="container">
                 <div class="logo">
-                    <a href="">
-                        {{-- <img src="../uploads/{{$Logo[0]->thumbnail}}" width="180px"> --}}
-                        <h1>
-                            KH FASHION
-                        </h1>
-                    </a>
+                   
+ @if(isset($logo) && $logo->logo)
+    <img src="{{ asset($logo->logo) }}" height="80px"  width="100px" alt="Logo">
+@else
+    <h1>KH FASHION</h1>
+@endif
                 </div>
                 <ul class="menu">
                     <li>
